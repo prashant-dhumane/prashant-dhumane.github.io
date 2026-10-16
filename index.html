@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prashant Dhumane — Production PHP, WordPress & Voice AI</title>
+<meta name="description" content="I take software that works in the demo — including apps built with AI — and make it safe and dependable for real users. PHP, Laravel, WordPress plugins and voice AI.">
+<style>
+  /*
+   * रंग Bharti plugins मधलेच — गडद निळा आणि आकाशी. wp.org वरून कोणी इथे आला
+   * तर "हाच माणूस" हे एका नजरेत कळावं.
+   */
+  :root{
+    --ink:#0f1a2e; --ink-2:#44506a; --muted:#6b778c;
+    --ground:#f6f8fb; --card:#ffffff; --line:#e3e8f0;
+    --deep:#1b2a4a; --deeper:#0d1526; --sky:#4cc4f0; --sky-ink:#0b7fae;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  a{color:var(--sky-ink)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+  /* ── वरचा भाग ── */
+  header{background:linear-gradient(160deg,var(--deep),var(--deeper));color:#fff;
+    position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(circle at 18% 12%,rgba(76,196,240,.28),transparent 58%)}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;position:relative;z-index:1}
+  nav .me{font-weight:700;letter-spacing:-.01em}
+  nav a{color:rgba(255,255,255,.8);text-decoration:none;margin-left:22px;font-size:15px}
+  nav a:hover{color:#fff}
+  .hero{padding:64px 0 88px;position:relative;z-index:1;max-width:760px}
+  .hero .tag{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.04em;
+    color:var(--sky);border:1px solid rgba(76,196,240,.4);padding:4px 12px;border-radius:99px;margin-bottom:22px}
+  .hero h1{font-size:clamp(34px,5.4vw,56px);line-height:1.1;margin:0 0 22px;letter-spacing:-.025em}
+  .hero h1 span{color:var(--sky)}
+  .hero p{font-size:clamp(17px,2vw,20px);color:rgba(255,255,255,.82);margin:0 0 34px}
+  .btn{display:inline-block;padding:13px 24px;border-radius:8px;font-weight:600;text-decoration:none;font-size:16px}
+  .btn.main{background:var(--sky);color:var(--deeper)}
+  .btn.main:hover{background:#6fd3f5}
+  .btn.ghost{color:#fff;border:1px solid rgba(255,255,255,.3);margin-left:10px}
+  .btn.ghost:hover{border-color:#fff}
+
+  section{padding:76px 0}
+  h2{font-size:clamp(26px,3.4vw,34px);letter-spacing:-.02em;margin:0 0 10px}
+  .lead{color:var(--ink-2);max-width:680px;margin:0 0 40px;font-size:18px}
+
+  /* ── सेवा ── */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px}
+  .card h3{margin:0 0 8px;font-size:18px;letter-spacing:-.01em}
+  .card p{margin:0;color:var(--ink-2);font-size:15.5px}
+  .card .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:8px;
+    background:rgba(76,196,240,.14);color:var(--sky-ink);font-weight:700;margin-bottom:14px}
+  .card.first{border-color:var(--sky);box-shadow:0 0 0 1px var(--sky) inset}
+
+  /* ── पुरावा ── */
+  .proof{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .work{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:22px}
+  .work .card{display:flex;flex-direction:column}
+  .work .kind{font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .work .card p{flex:1;margin-bottom:16px}
+  .work a.go{font-weight:600;text-decoration:none}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:18px}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:20px 22px;background:var(--ground)}
+  .stat b{display:block;font-size:26px;letter-spacing:-.02em;color:var(--deep)}
+  .stat span{color:var(--ink-2);font-size:14.5px}
+
+  /* ── कसं काम करतो ── */
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:34px}
+  .step{padding-left:52px;position:relative}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;
+    width:36px;height:36px;border-radius:50%;background:var(--deep);color:#fff;
+    display:grid;place-items:center;font-weight:700}
+  .step h3{margin:4px 0 6px;font-size:17px}
+  .step p{margin:0;color:var(--ink-2);font-size:15.5px}
+
+  /*
+   * "मी काय करणार नाही" — Bharti च्या readme सारखाच प्रामाणिक भाग. इतर
+   * developer sites वर हा कधीच नसतो, आणि तोच विश्वास तयार करतो.
+   */
+  .honest{background:#fff8e8;border:1px solid #f1dfb0;border-radius:12px;padding:24px 26px}
+  .honest h3{margin:0 0 10px;font-size:17px}
+  .honest ul{margin:0;padding-left:20px;color:#5a4a1f}
+  .honest li{margin:4px 0}
+
+  /* ── संपर्क ── */
+  .contact{background:linear-gradient(160deg,var(--deep),var(--deeper));color:#fff;text-align:center}
+  .contact .lead{color:rgba(255,255,255,.8);margin:0 auto 30px}
+  .contact .links{margin-top:26px;font-size:15px}
+  .contact .links a{color:rgba(255,255,255,.75);margin:0 12px}
+  footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px}
+
+  @media (max-width:560px){
+    nav a:not(:last-child){display:none}
+    .btn.ghost{margin:12px 0 0}
+    section{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <span class="me">Prashant Dhumane</span>
+      <span><a href="#services">Services</a><a href="#work">Work</a><a href="#contact">Contact</a></span>
+    </nav>
+    <div class="hero">
+      <span class="tag">PHP · LARAVEL · WORDPRESS · VOICE AI</span>
+      <h1>It works in the demo.<br><span>I make it work for real users.</span></h1>
+      <p>Apps built quickly — by a small team, a freelancer, or with AI — usually run
+        fine until real people, real money and real traffic arrive. That is the
+        part I do: review it, fix what breaks, and keep it running.</p>
+      <a class="btn main" href="#contact">Tell me what you need</a>
+      <a class="btn ghost" href="#work">See my work</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── सेवा ─────────────────────────────────────────────────────────────
+     पहिली सेवा मुद्दाम "AI ने बनवलेलं दुरुस्त करणे" आहे. साधी website
+     client आता स्वतः बनवतो; तो बनवल्यानंतर जे मोडतं, त्याचीच मागणी वाढतेय. -->
+<section id="services">
+  <div class="wrap">
+    <h2>What I do</h2>
+    <p class="lead">Four things, all of which I do every week in production — not
+      side interests.</p>
+    <div class="grid">
+      <div class="card first">
+        <div class="n">1</div>
+        <h3>Fix and harden AI-built apps</h3>
+        <p>AI-written code almost always runs, and often fails a security review.
+          I audit it, close the holes — auth, injection, exposed keys — and make
+          it ready for real users.</p>
+      </div>
+      <div class="card">
+        <div class="n">2</div>
+        <h3>Voice AI and calling systems</h3>
+        <p>AI agents that answer phone calls: Twilio and Telnyx telephony, live
+          speech models, knowledge-base lookup (RAG), tickets, hand-off to staff,
+          and billing.</p>
+      </div>
+      <div class="card">
+        <div class="n">3</div>
+        <h3>WordPress plugins</h3>
+        <p>Custom plugins written to wordpress.org standards — the same standards
+          my own published plugins had to pass in review.</p>
+      </div>
+      <div class="card">
+        <div class="n">4</div>
+        <h3>Laravel business systems</h3>
+        <p>Admin panels, dashboards, subscriptions, reports and integrations — the
+          systems a business logs into every day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── पुरावा ────────────────────────────────────────────────────────────
+     client चं नाव, logo किंवा code कुठेही नाही. फक्त **तुम्ही काय केलं** ते.
+     सार्वजनिक काम (wp.org) पूर्ण नावासह; client चं काम वर्णनापुरतं. -->
+<section class="proof" id="work">
+  <div class="wrap">
+    <h2>Work you can check</h2>
+    <p class="lead">Two plugins are public on wordpress.org — both passed its manual
+      review — and one product you can buy and run on your own server.</p>
+
+    <div class="work">
+      <div class="card">
+        <div class="kind">WordPress plugin · Live</div>
+        <h3>Bharti Subtitles</h3>
+        <p>Generates subtitles for Media Library videos entirely inside the
+          browser. No API key, no per-minute cost, and the video never leaves the
+          computer.</p>
+        <a class="go" href="https://wordpress.org/plugins/bharti-subtitles/" target="_blank" rel="noopener">View on wordpress.org →</a>
+      </div>
+      <div class="card">
+        <div class="kind">WooCommerce plugin · Live</div>
+        <h3>Bharti Store Tools</h3>
+        <p>Lets AI agents shop a WooCommerce store — search its real products,
+          manage the cart and start checkout — while payment stays in the
+          customer's hands.</p>
+        <a class="go" href="https://wordpress.org/plugins/bharti-store-tools/" target="_blank" rel="noopener">View on wordpress.org →</a>
+      </div>
+      <div class="card">
+        <div class="kind">Product · ₹14,999 one time</div>
+        <h3>Aspire Chat</h3>
+        <p>Self-hosted one-to-one chat for websites and apps — WordPress, Laravel,
+          React, Django, PHP. Runs on your own server: no Firebase, no monthly fee.</p>
+        <a class="go" href="aspire-chat/">See the demo →</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>1,900+</b><span>commits on a production, multi-company voice-AI platform</span></div>
+      <div class="stat"><b>2</b><span>telephony providers integrated — Twilio and Telnyx</span></div>
+      <div class="stat"><b>2</b><span>plugins through wordpress.org review</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>How I work</h2>
+    <p class="lead">No sales calls needed. Write to me the way you would explain it
+      to a colleague.</p>
+    <div class="steps">
+      <div class="step"><h3>You describe it</h3>
+        <p>What you have, what is wrong or missing, and a link if there is one.</p></div>
+      <div class="step"><h3>I reply with a written plan</h3>
+        <p>What I would change, what it costs, and how long — before any work starts.</p></div>
+      <div class="step"><h3>Build, test, hand over</h3>
+        <p>Working code, a short explanation, and ongoing maintenance if you want it.</p></div>
+    </div>
+
+    <div class="honest">
+      <h3>What I will not promise</h3>
+      <ul>
+        <li>First place on Google. Nobody honest can promise that.</li>
+        <li>That an app built in a weekend becomes enterprise-grade in a day. I will
+          tell you plainly what it needs.</li>
+        <li>A price before I have seen the code. Guessing helps neither of us.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── संपर्क ────────────────────────────────────────────────────────────
+     ⚠️ खालचा email **तुम्ही बदलायचा**. मी मुद्दाम तुमचा पत्ता टाकलेला नाही —
+     हे पान सार्वजनिक होणार आहे, आणि त्यावर कोणता पत्ता द्यायचा हे तुम्ही ठरवा.
+     (spam टाळायला कामासाठी वेगळा पत्ता बरा.) -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Tell me what you need</h2>
+    <p class="lead">A few lines are enough. I reply to every message, usually within a day.</p>
+    <a class="btn main" href="mailto:apple.dev3@gmail.com?subject=Project%20enquiry">Email me</a>
+    <div class="links">
+      <a href="https://github.com/prashant-dhumane" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://profiles.wordpress.org/aiguru/" target="_blank" rel="noopener">WordPress.org</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="y">2026</span> Prashant Dhumane · Nashik, India</div>
+</footer>
+
+<script>
+  // वर्ष हाताने बदलावं लागू नये.
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
