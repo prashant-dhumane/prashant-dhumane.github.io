@@ -59,6 +59,8 @@
   .proof{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .work{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:22px}
   .work .card{display:flex;flex-direction:column}
+  .work .tech{margin-top:auto;padding-top:12px;font-size:13.5px;color:var(--muted)}
+  .subhead{font-size:22px;margin:36px 0 6px;letter-spacing:-.01em}
   .work .kind{font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
   .work .card p{flex:1;margin-bottom:16px}
   .work a.go{font-weight:600;text-decoration:none}
@@ -197,6 +199,32 @@
       <div class="stat"><b>1,900+</b><span>commits on a production, multi-company voice-AI platform</span></div>
       <div class="stat"><b>2</b><span>telephony providers integrated — Twilio and Telnyx</span></div>
       <div class="stat"><b>2</b><span>plugins through wordpress.org review</span></div>
+    </div>
+
+    <h3 class="subhead">Systems I've built for clients</h3>
+    <p class="lead">Private systems in daily use, so there is nothing public to link to. Happy to walk you through them.</p>
+    <div class="work">
+      <div class="card">
+        <div class="kind">IoT · Healthcare</div>
+        <h3>Nurse-call management for care homes</h3>
+        <p>A resident presses a call point and the alert reaches the right staff in
+          seconds, on their phones. Raspberry Pi gateways read radio and wired call
+          points and report to the cloud over MQTT. Alerts escalate when nobody
+          answers, phone calls go through the care home's own phone system, and
+          managers get response-time reports. Links to the care-record software
+          the homes already use.</p>
+        <div class="tech">Laravel · Vue · MQTT · Python on the gateways · FreePBX · Kubernetes · 10,000+ of my commits</div>
+      </div>
+      <div class="card">
+        <div class="kind">E-commerce · Design tool</div>
+        <h3>Online name-badge designer and store</h3>
+        <p>Customers design custom name badges in the browser — text, logos,
+          colours and material — add a list of names, see every badge before they
+          buy, and pay by card. Company templates for repeat business orders,
+          invoices, and an admin designer for ready-made badges. Rebuilt from an
+          old PHP site, with a security clean-up of the old one on the way.</p>
+        <div class="tech">Laravel · Livewire · canvas editor · Stripe</div>
+      </div>
     </div>
   </div>
 </section>
