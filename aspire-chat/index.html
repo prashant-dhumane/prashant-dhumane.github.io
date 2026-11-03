@@ -6,7 +6,7 @@
 <!-- Built from page.html (same content). Edit page.html, then copy it below this line. -->
 <title>Aspire Chat</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Self-hosted one-to-one chat for your website: WordPress, Laravel, Node, React, Django, Flask, FastAPI, PHP or plain HTML. Your own server, no Firebase, one-time price.">
+<meta name="description" content="Self-hosted chat for your website, one-to-one and groups, with voice messages: WordPress, Laravel, Node, React, Django, Flask, FastAPI, PHP or plain HTML. Your own server, no Firebase, one-time price.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
@@ -240,7 +240,7 @@
         <div class="feature">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
           <h3>Photos and files</h3>
-          <p>Photos are made smaller before upload and their location data removed. PDF, Word, Excel, PowerPoint, CSV and ZIP files. Stored encrypted on your disk.</p>
+          <p>Photos are made smaller before upload and their location data removed. PDF, Word, Excel, PowerPoint, CSV, ZIP, video and audio files. Stored encrypted on your disk.</p>
         </div>
         <div class="feature">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 11.5h7M8.5 14.5h4"/></svg>
@@ -261,6 +261,21 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
           <h3>Only on your server</h3>
           <p>No Firebase, Pusher, cloud storage or email service. Database, files and live updates all run on the server you choose.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.8a3.5 3.5 0 0 1 0 6.4M18 14.2a6.5 6.5 0 0 1 3.5 5.8"/></svg>
+          <h3>Group chats</h3>
+          <p>2 to 50 people, with a name and admins. Names above messages, "Asha is typing…", and read ticks once everyone has read. Your users make groups, or your site does.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg>
+          <h3>Voice messages</h3>
+          <p>Tap the microphone, speak and send, up to 5 minutes. They play inside the chat, on computers and phones. Your site needs HTTPS for this.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 7h4M10 11h4"/></svg>
+          <h3>Inside your mobile app</h3>
+          <p>Have your own app? Show the chat in a WebView, with your own users. The install guide has the steps, Flutter included.</p>
         </div>
       </div>
     </div>
@@ -284,12 +299,16 @@
             <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m5.7 5.7 12.6 12.6"/></svg></div>
             <p><b>A limit before the first reply</b>Allow, say, three messages until the other person answers once. Spam stops without blocking real customers.</p>
           </div>
+          <div class="rule">
+            <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7z"/><path d="m4 4 16 16"/></svg></div>
+            <p><b>Groups of strangers, names private</b>Let only hosts make groups, if you like. Guests in a group do not see each other's names. The host does, and always knows who wrote what.</p>
+          </div>
         </div>
-        <p class="note">All three are optional and off by default. Each site picks what it needs.</p>
+        <p class="note">All of these are optional and off by default. Each site picks what it needs.</p>
       </div>
       <div class="stack">
         <div class="framed"><img src="img/desktop-chat.webp" width="2560" height="1560" alt="The host's view: three guests in the list with unread counts, and the conversation with Ananya including a PDF of house rules."></div>
-        <div class="framed"><img src="img/admin-rules.webp" width="1658" height="796" alt="Admin panel: the Chat rules and notifications settings for one site."></div>
+        <div class="framed"><img src="img/admin-rules.webp" width="1694" height="1375" alt="Admin panel: the Chat rules and notifications settings for one site."></div>
       </div>
     </div>
   </section>
@@ -318,12 +337,12 @@
       <div class="head">
         <span class="bubble">Install <span class="ticks">✓✓</span></span>
         <h2>Running in an afternoon</h2>
-        <p class="lede">English install guide included, tested on a fresh Ubuntu server, with Docker, and on Windows.</p>
+        <p class="lede">English install guide included, tested on a fresh Ubuntu server, on cPanel hosting, with Docker, and on Windows.</p>
       </div>
       <div class="steps">
         <div class="step">
           <h3>Start the chat server</h3>
-          <p>Docker is two commands. Plain Linux and Windows work too.</p>
+          <p>Docker is two commands, cPanel is one. Plain Linux and Windows work too.</p>
           <pre>cp .env.docker.example .env.docker
 docker compose --env-file .env.docker up -d</pre>
         </div>
@@ -382,11 +401,11 @@ docker compose --env-file .env.docker up -d</pre>
         <details><summary>Do I need Firebase, Pusher or any paid service?</summary><p>No. Everything runs on your own server: the database, live updates, photos and files.</p></details>
         <details><summary>Is there a monthly fee?</summary><p>No. You pay once. Updates for the first year are included.</p></details>
         <details><summary>Can I use it for client projects?</summary><p>Yes, on as many of your own and your clients' sites as you like. You may not resell or share the code itself.</p></details>
-        <details><summary>Does it work on phones?</summary><p>Yes, in the phone's browser, with a layout made for small screens. There is no separate app, so there are no phone push notifications. For people who are away, your site can send an SMS, WhatsApp or email when they get a message.</p></details>
+        <details><summary>Does it work on phones?</summary><p>Yes, in the phone's browser, with a layout made for small screens. Aspire Chat has no app of its own, so it sends no phone push notifications itself. For people who are away, it tells your site, and your site can send an SMS, WhatsApp, email or your own app's push. If you have your own app, the chat works inside it too.</p></details>
         <details><summary>Does it use my existing users and logins?</summary><p>Yes. Your site stays in charge of who is logged in. It gives the chat a short-lived key for that user, so there are no separate chat accounts or passwords.</p></details>
         <details><summary>Can one chat server serve several sites?</summary><p>Yes. Each site gets its own key, and users of one site never see another site's users or messages.</p></details>
         <details><summary>Can I change the code or the look?</summary><p>Yes. You get the full source. Colours, labels and language can be set without touching the code.</p></details>
-        <details><summary>Group chats or video calls?</summary><p>Not in this version. Aspire Chat is one-to-one chat. Group chat, voice messages and calls are planned for a later version.</p></details>
+        <details><summary>Group chats, voice messages, video calls?</summary><p>Group chats of up to 50 people and voice messages are included. Voice and video calls are not.</p></details>
       </div>
     </div>
   </section>
